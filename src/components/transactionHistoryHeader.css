@@ -1,0 +1,26 @@
+.TransactionHistoryHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #575e6c;
+}
+
+
+.TransactionHistoryHeader .header-left,
+.TransactionHistoryHeader .header-right {
+    text-align: left;
+}
+
+.TransactionHistoryHeader .header-left h3,
+.TransactionHistoryHeader .header-right h3 {
+    font-weight: 400;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.TransactionHistoryHeader .header-left span,
+.TransactionHistoryHeader .header-right span {
+    color: #8a909c;
+}
