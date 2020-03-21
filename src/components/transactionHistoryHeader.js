@@ -13,8 +13,8 @@ function TransactionHistoryHeader () {
                 <div className="profile-pic">
                 </div>
                 <div className="balance-details">
-                    <h3>$90,000</h3>
-                    <span> Your balance amount </span>
+                    <h3>$ 14,75,632.00</h3>
+                    <span> Your balance amount. </span>
                 </div>
             </div>
         </div>

@@ -1,12 +1,13 @@
 .TransactionHistory-container {
-    width: 70%;
+    /* width: 70%; */
+    width: 100%;
     background-color: #404756;
     color: #e0e1e4;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 30px;
+    /* margin: 30px; */
     padding: 30px 50px;
     height: calc(100vh - 60px);
 }

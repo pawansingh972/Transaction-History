@@ -1,5 +1,6 @@
 .TransactionHistoryContent {
     margin-top: 20px;
+    width: 100%;
 }
 
 .TransactionHistoryContent h2 {
@@ -18,4 +19,55 @@
     height: 30px;
     margin-right: 5px;
     margin-right: 10px;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.transaction.title {
+    border-radius: 0;
+    border-bottom: 1px solid #575e6c;
+}
+
+.transaction.even {
+    background-color: #59606f;
+}
+
+.transaction .transaction-amnt.debit {
+    color: #cb4f6a;
+}
+
+.transaction .transaction-amnt.credit {
+    color: #9ec77c;
+}
+
+
+.transaction .transaction-date,
+.transaction .transaction-date-title {
+    width: 20%
+}
+
+.transaction .transaction-id,
+.transaction .transaction-id-title {
+    width: 30%;
+}
+
+.transaction .transaction-details,
+.transaction .transaction-details-title {
+    width: 25%;
+}
+
+.transaction .transaction-amnt,
+.transaction .transaction-amnt-title {
+    width: 25%;
+    text-align: right;
 }
