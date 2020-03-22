@@ -71,3 +71,28 @@
     width: 25%;
     text-align: right;
 }
+
+.next-btn, 
+.prev-btn {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #575e6c;
+    border-radius: 7px;
+    background: none;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 30px;
+    user-select: none;
+}
+
+
+.next-btn:hover, 
+.prev-btn:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.next-btn.disabled, 
+.prev-btn.disabled {
+    cursor: not-allowed;
+}
