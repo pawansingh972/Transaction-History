@@ -129,8 +129,9 @@ class TransactionHistoryContent extends React.Component {
           <div className="header-right">
             <input
               className="search-box"
+              title="search by recipient (Transaction details)"
               value={this.state.searchKey}
-              placeholder="seacrch by recipient (Transaction details)"
+              placeholder="search by recipient (Transaction details)"
               onChange={this.handleOnChange}
             />
             <span>Sort by : </span>
