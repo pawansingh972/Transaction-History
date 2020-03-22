@@ -1,8 +1,10 @@
 import React from "react";
-import FintechSVGComponent from "../fintechSVGComponent";
 
+import SortByComponent from "./sortByComponent.js";
+
+import FintechSVGComponent from "../fintechSVGComponent";
 import DataHandler from "../data/dataHandler";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 
 class TransactionHistoryContent extends React.Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class TransactionHistoryContent extends React.Component {
     this.getOddEvenClass = this.getOddEvenClass.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
     this.getPrevPage = this.getPrevPage.bind(this);
+    this.handleSortBy = this.handleSortBy.bind(this);
   }
 
   getTransactionType(transaction) {
@@ -56,12 +59,28 @@ class TransactionHistoryContent extends React.Component {
     }));
   }
 
+  handleSortBy(sortBy) {
+    let skip = 0;
+    let limit = 10;
+    let transactions = DataHandler.getAllData({ skip, limit, sortBy });
+    this.setState(prevState => ({
+      currentPage: 1,
+      transactions: transactions
+    }));
+  }
+
   render() {
     return (
       <div className="TransactionHistoryContent">
         <div className="header">
-          <FintechSVGComponent />
-          <h2>Transaction History</h2>
+          <div className="header-left">
+            <FintechSVGComponent />
+            <h2>Transaction History</h2>
+          </div>
+          <div className="header-right">
+            <span>Sort by : </span>
+            <SortByComponent handleSortBy={this.handleSortBy} />
+          </div>
         </div>
 
         <div className="bottom">
@@ -69,12 +88,12 @@ class TransactionHistoryContent extends React.Component {
 
           <div className="transaction title">
             <div className="transaction-date-title"> Transaction date </div>
-            <div className="transaction-id-title"> Transaction ID </div>
             <div className="transaction-details-title">
               {" "}
               Transaction deatils{" "}
             </div>
             <div className="transaction-amnt-title"> Transaction amount </div>
+            <div className="transaction-balance-amnt-title"> Balance Amnt </div>
           </div>
 
           {this.state.transactions &&
@@ -85,7 +104,6 @@ class TransactionHistoryContent extends React.Component {
                   key={idx}
                 >
                   <div className="transaction-date"> {transaction.Date} </div>
-                  <div className="transaction-id"> 11213123213213 </div>
                   <div className="transaction-details">
                     {" "}
                     {transaction["Transaction Details"]}{" "}
@@ -98,6 +116,9 @@ class TransactionHistoryContent extends React.Component {
                     {" "}
                     {transaction["Withdrawal AMT"] ||
                       transaction["Deposit AMT"]}{" "}
+                  </div>
+                  <div className="transaction-balance-amnt">
+                    {transaction["Balance AMT"]}
                   </div>
                 </div>
               );

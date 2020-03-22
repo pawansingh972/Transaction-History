@@ -10,8 +10,16 @@
 
 .TransactionHistoryContent .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.TransactionHistoryContent .header .header-right,
+.TransactionHistoryContent .header .header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .TransactionHistoryContent .header svg {

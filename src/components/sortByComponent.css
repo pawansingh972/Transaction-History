@@ -1,0 +1,136 @@
+.dd-header {
+  border: 1px solid #575e6c;
+  border-radius: 5px;
+  width: 210px;
+  height: 35px;
+  cursor: pointer;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 20px;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+}
+
+.dd-header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  letter-spacing: 0.7px;
+  color: white;
+}
+
+.dd-list {
+  position: relative;
+  margin-left: 15px;
+}
+
+.dd-list .dropdown-down {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  min-width: 200px;
+  max-width: 250px;
+  left: auto;
+  right: auto;
+  z-index: 1010;
+  border: 0;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.175);
+  animation: 0.2s hideFade ease-out forwards;
+}
+
+.dd-list .dropdown-menu {
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+  border: none;
+  left: 10px;
+}
+
+.dd-list .dropdown-item {
+  opacity: 0.7;
+  letter-spacing: 0.7px;
+}
+
+.dd-list::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.5em solid;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0;
+  border-left: 0.5em solid transparent;
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  /* color: #d4d1d1; */
+  /* color: #007ab2; */
+  color: rgb(113, 20, 234);
+}
+
+.dd-list.show::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-bottom: 0.5em solid;
+  border-right: 0.5em solid transparent;
+  border-top: 0;
+  border-left: 0.5em solid transparent;
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  /* color: #d4d1d1; */
+  /* color: #007ab2; */
+  color: rgb(113, 20, 234);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #3a404e;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+.dropdown-menu.show {
+  display: block;
+}
+
+.dd-list .dropdown-menu {
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+  border: none;
+  left: 10px;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+}
