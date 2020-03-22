@@ -18,7 +18,8 @@ class TransactionHistoryContent extends React.Component {
       totalPages: totalPages,
       totalTransactions: null,
       currentPage: 1,
-      searchKey: ""
+      searchKey: "",
+      sortBy: ""
     };
     this.pageSize = 10;
 
@@ -44,11 +45,13 @@ class TransactionHistoryContent extends React.Component {
     let skip = currentPage * this.pageSize;
     let limit = this.pageSize;
     let searchKey = this.state.searchKey;
+    let sortBy = this.state.sortBy;
 
     let { transactions, totalPages } = DataHandler.getAllData({
       skip,
       limit,
-      searchKey
+      searchKey,
+      sortBy
     });
 
     this.setState(prevState => ({
@@ -64,10 +67,11 @@ class TransactionHistoryContent extends React.Component {
     let skip = (currentPage - 2) * this.pageSize;
     let limit = this.pageSize;
     let searchKey = this.state.searchKey;
-
+    let sortBy = this.state.sortBy;
     let { transactions, totalPages } = DataHandler.getAllData({
       skip,
       limit,
+      sortBy,
       searchKey
     });
 
@@ -82,7 +86,7 @@ class TransactionHistoryContent extends React.Component {
     let skip = 0;
     let limit = 10;
     let searchKey = this.state.searchKey;
-
+    this.setState({ sortBy });
     let { transactions, totalPages } = DataHandler.getAllData({
       skip,
       limit,
