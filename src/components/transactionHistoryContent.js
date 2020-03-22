@@ -9,14 +9,20 @@ import { Button } from "react-bootstrap";
 class TransactionHistoryContent extends React.Component {
   constructor(props) {
     super(props);
+    let { transactions, totalPages } = DataHandler.getAllData({
+      skip: 0,
+      limit: 10
+    });
     this.state = {
-      transactions: DataHandler.getAllData({ skip: 0, limit: 10 }),
-      totalPages: DataHandler.getAllData().length / 10,
+      transactions: transactions,
+      totalPages: totalPages,
       totalTransactions: null,
-      currentPage: 1
+      currentPage: 1,
+      searchKey: ""
     };
     this.pageSize = 10;
 
+    this.handleOnChange = this.handleOnChange.bind(this);
     this.getTransactionType = this.getTransactionType.bind(this);
     this.getOddEvenClass = this.getOddEvenClass.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
@@ -37,11 +43,18 @@ class TransactionHistoryContent extends React.Component {
     let currentPage = this.state.currentPage;
     let skip = currentPage * this.pageSize;
     let limit = this.pageSize;
-    let transactions = DataHandler.getAllData({ skip, limit });
+    let searchKey = this.state.searchKey;
+
+    let { transactions, totalPages } = DataHandler.getAllData({
+      skip,
+      limit,
+      searchKey
+    });
 
     this.setState(prevState => ({
       currentPage: prevState.currentPage + 1,
-      transactions: transactions
+      transactions: transactions,
+      totalPages: totalPages
     }));
   }
   getPrevPage(event) {
@@ -50,24 +63,60 @@ class TransactionHistoryContent extends React.Component {
     let currentPage = this.state.currentPage;
     let skip = (currentPage - 2) * this.pageSize;
     let limit = this.pageSize;
+    let searchKey = this.state.searchKey;
 
-    let transactions = DataHandler.getAllData({ skip, limit });
+    let { transactions, totalPages } = DataHandler.getAllData({
+      skip,
+      limit,
+      searchKey
+    });
 
     this.setState(prevState => ({
       currentPage: prevState.currentPage - 1,
-      transactions: transactions
+      transactions: transactions,
+      totalPages: totalPages
     }));
   }
 
   handleSortBy(sortBy) {
     let skip = 0;
     let limit = 10;
-    let transactions = DataHandler.getAllData({ skip, limit, sortBy });
+    let searchKey = this.state.searchKey;
+
+    let { transactions, totalPages } = DataHandler.getAllData({
+      skip,
+      limit,
+      sortBy,
+      searchKey
+    });
     this.setState(prevState => ({
       currentPage: 1,
-      transactions: transactions
+      transactions: transactions,
+      totalPages: totalPages
     }));
   }
+
+  handleOnChange = event => {
+    event.persist();
+    let searchKey = event.target.value;
+    this.setState({ searchKey });
+
+    let skip = 0;
+    let limit = 10;
+    let sortBy = this.state.sortBy;
+    let { transactions, totalPages } = DataHandler.getAllData({
+      skip,
+      limit,
+      sortBy,
+      searchKey
+    });
+
+    this.setState(prevState => ({
+      currentPage: 1,
+      transactions: transactions,
+      totalPages: totalPages
+    }));
+  };
 
   render() {
     return (
@@ -78,6 +127,12 @@ class TransactionHistoryContent extends React.Component {
             <h2>Transaction History</h2>
           </div>
           <div className="header-right">
+            <input
+              className="search-box"
+              value={this.state.searchKey}
+              placeholder="seacrch by recipient (Transaction details)"
+              onChange={this.handleOnChange}
+            />
             <span>Sort by : </span>
             <SortByComponent handleSortBy={this.handleSortBy} />
           </div>

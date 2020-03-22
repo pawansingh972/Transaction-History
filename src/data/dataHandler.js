@@ -21,14 +21,20 @@ DataHandler.getAllData = query => {
   //   axios.get(API_URL).then(res => {
   //     const transactions = res.data;
   //   });
-
-  if (!query) return TransactionHistoryData;
+  let transactions = TransactionHistoryData;
+  let totalPages = transactions.length / 10;
+  if (!query) return { transactions, totalPages };
 
   let skip = query.skip || 0;
   let limit = query.limit || 10;
   let sortBy = query.sortBy || "";
-  let transactions = TransactionHistoryData.slice(skip, skip + limit);
-
+  let searchKey = query.searchKey || "";
+  if (searchKey) {
+    const regexp = new RegExp(searchKey, "i");
+    transactions = transactions.filter(transaction =>
+      regexp.test(transaction["Transaction Details"])
+    );
+  }
   if (sortBy) {
     if (sortBy === "Balance AMT") {
       transactions = transactions.sort((a, b) => {
@@ -47,7 +53,9 @@ DataHandler.getAllData = query => {
     }
   }
 
-  return transactions;
+  totalPages = transactions.length / 10;
+  transactions = transactions.slice(skip, skip + limit);
+  return { transactions, totalPages };
 };
 
 export default DataHandler;
