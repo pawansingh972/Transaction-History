@@ -1,98 +1,96 @@
 .TransactionHistoryContent {
-    margin-top: 20px;
-    width: 100%;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .TransactionHistoryContent h2 {
-    font-size: 20px;
-    font-weight: 400;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .TransactionHistoryContent .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.TransactionHistoryContent .header img {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    margin-right: 10px;
+.TransactionHistoryContent .header svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .transaction {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-size: 15px;
-    text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: left;
 }
 
 .transaction.title {
-    border-radius: 0;
-    border-bottom: 1px solid #575e6c;
+  border-radius: 0;
+  border-bottom: 1px solid #575e6c;
 }
 
 .transaction.even {
-    background-color: #59606f;
+  background-color: #59606f;
 }
 
 .transaction .transaction-amnt.debit {
-    color: #cb4f6a;
+  color: #cb4f6a;
 }
 
 .transaction .transaction-amnt.credit {
-    color: #9ec77c;
+  color: #9ec77c;
 }
-
 
 .transaction .transaction-date,
 .transaction .transaction-date-title {
-    width: 20%
+  width: 20%;
 }
 
 .transaction .transaction-id,
 .transaction .transaction-id-title {
-    width: 30%;
+  width: 30%;
 }
 
 .transaction .transaction-details,
 .transaction .transaction-details-title {
-    width: 25%;
+  width: 25%;
 }
 
 .transaction .transaction-amnt,
 .transaction .transaction-amnt-title {
-    width: 25%;
-    text-align: right;
+  width: 25%;
+  text-align: right;
 }
 
-.next-btn, 
+.next-btn,
 .prev-btn {
-    width: 80px;
-    height: 40px;
-    border: 1px solid #575e6c;
-    border-radius: 7px;
-    background: none;
-    color: #ffffff;
-    cursor: pointer;
-    margin: 30px;
-    user-select: none;
+  width: 80px;
+  height: 40px;
+  border: 1px solid #575e6c;
+  border-radius: 7px;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 30px;
+  user-select: none;
 }
 
-
-.next-btn:hover, 
+.next-btn:hover,
 .prev-btn:hover {
-    background: #ffffff;
-    color: #000000;
+  background: #ffffff;
+  color: #000000;
 }
 
-.next-btn.disabled, 
+.next-btn.disabled,
 .prev-btn.disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
